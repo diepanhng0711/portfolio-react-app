@@ -3,26 +3,40 @@ import { motion } from 'framer-motion'
 
 import { images } from '../../constants'
 import './About.scss'
+import { urlFor, client } from '../../client'
 
-const abouts = [
-  {
-    title: 'HUST Student',
-    description: `I'm currently a 4th-year HUST Student`,
-    imgUrl: images.about01
-  },
-  {
-    title: 'Game Developer',
-    description: `I'm now studying for becoming a potential and creative Game Developer`,
-    imgUrl: images.about02
-  },
-  {
-    title: 'Web Developer',
-    description: `I used to be a Web Developer`,
-    imgUrl: images.about03
-  }
-]
+// const abouts = [
+//   {
+//     title: 'HUST Student',
+//     description: `I'm currently a 4th-year HUST Student`,
+//     imgUrl: images.about01
+//   },
+//   {
+//     title: 'Game Developer',
+//     description: `I'm now studying for becoming a potential and creative Game Developer`,
+//     imgUrl: images.about02
+//   },
+//   {
+//     title: 'Web Developer',
+//     description: `I used to be a Web Developer`,
+//     imgUrl: images.about03
+//   }
+// ]
 
 const About = () => {
+  const [abouts, setAbouts] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+
+    client.fetch(query)
+      .then((data) => {
+        setAbouts(data)
+      })
+  }, []);
+
+  console.log(abouts)
+
   return (
     <React.Fragment>
       <h2 className="head-text">
@@ -38,7 +52,7 @@ const About = () => {
             className="app__profile-item"
             key={about.title + index}
           >
-            <img src={about.imgUrl} alt={about.title} />
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
