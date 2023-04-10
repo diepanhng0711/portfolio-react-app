@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 
-import { AppWrap } from '../../wrapper';
+import { AppWrap, MotionWrap } from '../../wrapper';
 import { images } from '../../constants';
 import './Header.scss'
 
@@ -48,7 +48,7 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-        <img src={images.profile} alt="profile_background" style={{ width: '565px', height: '710px' }}/>
+        <img src={images.profile} alt="profile_background" />
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
@@ -73,4 +73,8 @@ const Header = () => {
   )
 }
 
-export default AppWrap(Header, 'home');
+export default AppWrap(
+  MotionWrap(Header, 'app__header'),
+  'home',
+  "app__primarybg"
+);
