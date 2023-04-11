@@ -1,6 +1,6 @@
 # JustPhuongLyy's Portfolio App
 
-This project was built with ReactJs for FrontEnd section and Sanity for BackEnd section. Big thanks for JavaScript Mastery for guiding me with great tutorial building a glorious portfolio application.
+This project was built with ReactJs for FrontEnd section and Sanity for BackEnd section. Big thanks for JavaScript Mastery for guiding me with great tutorial building this glorious portfolio application.
 
 ## Available Scripts
 
@@ -25,3 +25,7 @@ Your app is ready to be deployed!
 ### `sanity start`
 
 Start your Sanity's BE data CRUD Section inside your BE directory.
+
+## Visit My Portfolio Website
+
+Visit my Portfolio Website here [justphuonglyy.netlify.app](justphuonglyy.netlify.app)
